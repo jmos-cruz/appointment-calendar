@@ -5,7 +5,7 @@ CREATE TABLE appointments(
     startTime TIME NOT NULL,
     endTime TIME NOT NULL,
     employee VARCHAR(50) NOT NULL,
-    client VARCHAR(50) NOT NULL,
-    PRIMARY KEY(date, startTime, employee)
+    client VARCHAR(50),
+    PRIMARY KEY(date, startTime)
 );
 

@@ -23,7 +23,23 @@ router.get(['/images/duck.webp', '/favicon.ico'], (req, res, next) => {
 //Accepts JSON files
 router.post('/', express.json({ type: '*/*' }), (req, res, next) => {
     dao.addAppointment(Object.values(req.body));
+    res.sendStatus(201);
+});
+
+/**
+ * Takes in two params in the URL and changes the appointment referred 
+ * in the params with the info present in the request body
+ *
+router.put('/:date/:startTime',  (req, res, next) => {
+    dao.updateAppointment(...Object.values(req.params), Object.values(req.body));
+    console.log(req.body);
     res.sendStatus(200);
 });
+*/
+
+router.delete('/', express.json({type: '*/*'}), (req, res, next) => {
+    dao.deleteAppointment(Object.values(req.body));
+    res.sendStatus(202);
+})
 
 module.exports = router;
